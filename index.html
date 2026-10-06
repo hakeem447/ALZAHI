@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fresh Harvest | Premium Fresh Produce</title>
+
+    <meta
+        name="description"
+        content="Fresh fruits, vegetables, frozen foods and more."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+<style id="jasir-order-category-fix">
+.order-category-card{
+    border:1px solid #dfe9e3;
+    background:#fff;
+    border-radius:14px;
+    padding:8px 8px 10px;
+    cursor:pointer;
+    text-align:left;
+    min-width:0;
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.order-category-card:hover{
+    transform:translateY(-2px);
+    border-color:#1f9d68;
+    box-shadow:0 10px 22px rgba(24,67,48,.10);
+}
+.order-category-image{
+    display:block;
+    width:100%;
+    height:78px;
+    overflow:hidden;
+    border-radius:10px;
+    background:#eef3ef;
+}
+.order-category-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.order-category-card strong{
+    display:block;
+    margin:9px 3px 2px;
+    color:#17382c;
+    font-size:14px;
+}
+.order-category-action{
+    display:block;
+    margin:0 3px;
+    color:#6e7b74;
+    font-size:11px;
+}
+@media(max-width:700px){
+    .order-category-image{height:70px}
+    .order-category-card strong{font-size:13px}
+    .order-category-action{font-size:10px}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar" id="navbar">
+
+    <div class="nav-inner">
+
+        <a href="#home" class="brand">
+
+            <span class="brand-mark">
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                    <path
+                        d="M20 33C12 29 7 22 9 14C16 14 22 18 23 25C25 17 30 12 36 11C37 20 31 28 20 33Z"
+                        fill="currentColor"
+                    />
+                    <path
+                        d="M20 31C20 23 18 18 13 15"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    />
+                </svg>
+            </span>
+
+            <span class="brand-text">
+                <strong>FRESH</strong>
+                <span>HARVEST</span>
+            </span>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#shop" class="nav-link">Shop</a>
+            <a href="#offers" class="nav-link">Offers</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button class="icon-button" id="searchBtn" aria-label="Search">
+
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="6.5"></circle>
+                    <path d="M16 16L21 21"></path>
+                </svg>
+
+            </button>
+
+
+            <button class="cart-button" id="cartBtn">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 4H5L7.2 15.5H18L21 7H6"></path>
+                    <circle cx="9" cy="19" r="1.5"></circle>
+                    <circle cx="17" cy="19" r="1.5"></circle>
+                </svg>
+
+                <span>Cart</span>
+
+                <b id="cartCount">0</b>
+
+            </button>
+
+
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="mobile-nav" id="mobileNav">
+
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#offers">Offers</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     SEARCH OVERLAY
+========================================================= -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <div class="search-box">
+
+        <button class="search-close" id="searchClose">×</button>
+
+        <span>Search products</span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search mango, apple, carrot..."
+            autocomplete="off"
+        >
+
+        <div class="search-results" id="searchResults"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STICKY MAIN CATEGORIES
+========================================================= -->
+
+<div
+    class="main-category-bar"
+    id="mainCategoryBar"
+>
+
+    <div class="main-category-inner">
+
+        <button
+            type="button"
+            class="main-category-card active"
+            data-category="all"
+            data-category-filter="all"
+        >
+
+            <div class="main-category-image">
+
+                <img
+                    id="mainCategoryImageAll"
+                    src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=600&q=90"
+                    alt="All products"
+                >
+
+            </div>
+
+            <span>All</span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-category-card"
+            data-category="fruits"
+            data-category-filter="fruits"
+        >
+
+            <div class="main-category-image">
+
+                <img
+                    id="mainCategoryImageFruits"
+                    src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=90"
+                    alt="Fresh fruits"
+                >
+
+            </div>
+
+            <span>Fruits</span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-category-card"
+            data-category="vegetables"
+            data-category-filter="vegetables"
+        >
+
+            <div class="main-category-image">
+
+                <img
+                    id="mainCategoryImageVegetables"
+                    src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=90"
+                    alt="Fresh vegetables"
+                >
+
+            </div>
+
+            <span>Vegetables</span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-category-card"
+            data-category="frozen"
+            data-category-filter="frozen"
+        >
+
+            <div class="main-category-image">
+
+                <img
+                    id="mainCategoryImageFrozen"
+                    src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=90"
+                    alt="Frozen"
+                >
+
+            </div>
+
+            <span>Frozen</span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-category-card"
+            data-category="other"
+            data-category-filter="other"
+        >
+
+            <div class="main-category-image">
+
+                <img
+                    id="mainCategoryImageOther"
+                    src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=90"
+                    alt="Other products"
+                >
+
+            </div>
+
+            <span>Other</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+<main>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero-section" id="home">
+
+    <div class="hero-container" id="heroContainer">
+
+        <div class="hero-copy">
+
+            <div class="hero-small-label">
+                FRESH EVERY DAY
+            </div>
+
+            <h1 id="heroTitle">
+                Naturally fresh.<br>
+                Beautifully delivered.
+            </h1>
+
+            <p id="heroDescription">
+                Premium fruits and vegetables selected with care for
+                your everyday table.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" id="heroShopBtn">
+                    Shop Fresh
+                </button>
+
+                <button class="secondary-btn" id="heroExploreBtn">
+                    Explore Categories
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-image-wrap">
+
+                <img
+                    id="heroImage"
+                    src=""
+                    alt="Fresh produce"
+                >
+
+                <div class="hero-image-overlay"></div>
+
+                <div class="hero-slide-label" id="heroSlideLabel">
+                    Fresh Fruits
+                </div>
+
+                <button
+                    class="hero-arrow hero-prev"
+                    id="heroPrev"
+                    aria-label="Previous"
+                >
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 5L8 12L15 19"></path>
+                    </svg>
+                </button>
+
+                <button
+                    class="hero-arrow hero-next"
+                    id="heroNext"
+                    aria-label="Next"
+                >
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 5L16 12L9 19"></path>
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-controls">
+
+        <label>
+            <input
+                type="radio"
+                name="heroMode"
+                value="auto"
+                checked
+            >
+            <span>Auto</span>
+        </label>
+
+        <label>
+            <input
+                type="radio"
+                name="heroMode"
+                value="manual"
+            >
+            <span>Manual</span>
+        </label>
+
+
+        <div class="hero-dots" id="heroDots"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SHOP AREA
+========================================================= -->
+
+<section class="shop-section" id="shop">
+
+    <div class="shop-layout">
+
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="category-sidebar">
+
+            <div class="sidebar-heading">
+
+                <span>Browse</span>
+
+                <h5>Categories</h5>
+
+            </div>
+
+
+            <!-- FRUITS -->
+
+           <div
+    class="sidebar-group"
+    data-sidebar-category="fruits"
+>
+
+                <div class="sidebar-group-title">
+
+                    <span class="category-dot fruits-dot"></span>
+
+                    <strong>Fruits</strong>
+
+                </div>
+
+
+                <button
+                    class="sidebar-category active"
+                    data-subcategory="all"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    All Fruits
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="apple"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Apple
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="banana"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Banana
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="mango"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Mango
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="orange"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Orange
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="papaya"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Papaya
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="pineapple"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Pineapple
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="watermelon"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1563114773-84221bd62daa?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Watermelon
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="grapes"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Grapes
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="kiwi"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1585059895524-72359e06133a?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Kiwi
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="strawberry"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Strawberry
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="guava"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1536511132770-e5058c7e8c46?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Guava
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="pomegranate"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1541344999736-83eca272f6fc?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Pomegranate
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="dragon-fruit"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1527325678964-54921661f888?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Dragon Fruit
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="avocado"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Avocado
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="coconut"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1449900302594-d41baf9c8b7c?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Coconut
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="cut-fruits"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Cut Fruits
+                </button>
+
+
+                <button
+                    class="sidebar-category"
+                    data-subcategory="fresh-juices"
+                >
+                    <span class="sidebar-thumb">
+                        <img
+                            src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=160&q=85"
+                            alt=""
+                        >
+                    </span>
+                    Fresh Juices
+                </button>
+
+            </div>
+
+
+            <!-- VEGETABLES -->
+
+           <div
+    class="sidebar-group"
+    data-sidebar-category="vegetables"
+>
+
+                <div class="sidebar-group-title">
+
+                    <span class="category-dot vegetables-dot"></span>
+
+                    <strong>Vegetables</strong>
+
+                </div>
+
+
+                <button class="sidebar-category" data-subcategory="all-vegetables">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    All Vegetables
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="tomato">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Tomato
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="potato">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Potato
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="onion">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Onion
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="carrot">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1445282768818-728615cc910a?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Carrot
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="cucumber">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1604977048611-28b0b9b3c4f7?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Cucumber
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="capsicum">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Capsicum
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="broccoli">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Broccoli
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="cauliflower">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1568584711271-8d9c1c9c5e3c?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Cauliflower
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="cabbage">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Cabbage
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="spinach">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Spinach
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="lettuce">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Lettuce
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="beans">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1567375698348-5d9d5ae99de0?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Beans
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="beetroot">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Beetroot
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="eggplant">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Eggplant
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="pumpkin">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Pumpkin
+                </button>
+
+            </div>
+
+
+            <!-- FROZEN -->
+
+           <div
+    class="sidebar-group"
+    data-sidebar-category="frozen"
+>
+
+                <div class="sidebar-group-title">
+
+                    <span class="category-dot frozen-dot"></span>
+
+                    <strong>Frozen</strong>
+
+                </div>
+
+
+                <button class="sidebar-category" data-subcategory="frozen-fruits">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Frozen Fruits
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="frozen-vegetables">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Frozen Vegetables
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="frozen-food">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Frozen Food
+                </button>
+
+            </div>
+
+
+            <!-- OTHER -->
+
+          <div
+    class="sidebar-group"
+    data-sidebar-category="other"
+>
+
+                <div class="sidebar-group-title">
+
+                    <span class="category-dot other-dot"></span>
+
+                    <strong>Other</strong>
+
+                </div>
+
+
+                <button class="sidebar-category" data-subcategory="dates">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1596591868231-05e3c7bfc3a4?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Dates
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="nuts">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1536591375731-6f6c0e5b0a2f?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Nuts
+                </button>
+
+
+                <button class="sidebar-category" data-subcategory="dry-fruits">
+                    <span class="sidebar-thumb">
+                        <img src="https://images.unsplash.com/photo-1599599810694-57a9a5e1e1e4?auto=format&fit=crop&w=160&q=85" alt="">
+                    </span>
+                    Dry Fruits
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- PRODUCT AREA -->
+
+        <div class="products-area">
+
+            <div class="products-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        FRESH SELECTION
+                    </span>
+
+                    <h2 id="productsTitle">
+                        All Products
+                    </h2>
+
+                    <p id="productsDescription">
+                        Carefully selected produce for your everyday needs.
+                    </p>
+
+                </div>
+
+
+                <div class="products-tools">
+
+                    <span id="productCount">
+                        0 products
+                    </span>
+
+                    <select id="sortSelect">
+
+                        <option value="default">
+                            Sort
+                        </option>
+
+                        <option value="az">
+                            Name A-Z
+                        </option>
+
+                        <option value="za">
+                            Name Z-A
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+<div
+    class="product-grid"
+    id="productGrid"
+>
+</div>
+
+            <div
+                class="empty-products"
+                id="emptyProducts"
+                hidden
+            >
+
+                <div class="empty-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="M16 16L21 21"></path>
+                    </svg>
+
+                </div>
+
+                <h3>No products found</h3>
+
+                <p>
+                    Try another category or search term.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WEEKEND OFFER
+========================================================= -->
+
+<section class="offer-section" id="offers">
+
+    <div class="offer-card">
+
+        <div class="offer-content">
+
+            <span
+                class="section-eyebrow"
+                id="offerEyebrow"
+            >
+                WEEKEND SPECIAL
+            </span>
+
+
+            <h2 id="offerTitle">
+                Freshness for<br>
+                your weekend table.
+            </h2>
+
+
+            <p id="offerDescription">
+                Discover this week's fresh special offer.
+            </p>
+
+
+            <button
+                class="primary-btn"
+                id="offerShopBtn"
+            >
+                Explore Fresh Picks
+            </button>
+
+        </div>
+
+
+        <div class="offer-image">
+
+            <img
+                id="offerImage"
+                src=""
+                alt="Weekend offer"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BENEFITS
+========================================================= -->
+
+<section class="benefits-section" id="about">
+
+    <div class="section-heading centered">
+
+        <span class="section-eyebrow">
+            WHY FRESH HARVEST
+        </span>
+
+        <h2>
+            Simple. Fresh. Reliable.
+        </h2>
+
+    </div>
+
+
+    <div class="benefits-grid">
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3C7 5 4 9 5 14C6 19 10 21 12 21C14 21 18 19 19 14C20 9 17 5 12 3Z"></path>
+                    <path d="M12 21V9"></path>
+                </svg>
+
+            </div>
+
+            <h3>Fresh Selection</h3>
+
+            <p>
+                Carefully selected produce with quality in mind.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <path d="M12 7V12L15 14"></path>
+                </svg>
+
+            </div>
+
+            <h3>Easy Ordering</h3>
+
+            <p>
+                Select products, choose quantity and send your order.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 7H20V19H4Z"></path>
+                    <path d="M8 7V5C8 4 9 3 10 3H14C15 3 16 4 16 5V7"></path>
+                    <path d="M8 12H16"></path>
+                </svg>
+
+            </div>
+
+            <h3>Wide Selection</h3>
+
+            <p>
+                Fruits, vegetables, frozen foods and more in one place.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 11A8 8 0 1 1 17.5 5.2"></path>
+                    <path d="M20 4V10H14"></path>
+                </svg>
+
+            </div>
+
+            <h3>Easy Reordering</h3>
+
+            <p>
+                A simple ordering experience designed for returning customers.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact-section" id="contact">
+
+    <div class="contact-card">
+
+        <div>
+
+            <span class="section-eyebrow">
+                CONTACT
+            </span>
+
+            <h2>
+                Need help with your order?
+            </h2>
+
+            <p>
+                Contact us directly for product availability and orders.
+            </p>
+
+        </div>
+
+
+        <div class="contact-actions">
+
+            <a
+                href="tel:+971554480623"
+                class="contact-action"
+            >
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 3L9 2L11 7L8.5 8.5C9.7 11 11.5 12.8 14 14L15.5 11.5L20.5 13.5L19.5 18C19.2 19.5 17.8 20.3 16.4 20C9.2 18.4 5.6 14.8 4 7.6C3.7 6.2 4.5 3.8 6 3Z"></path>
+                </svg>
+
+                <span>
+                    Call us
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://wa.me/971554480623"
+                target="_blank"
+                class="contact-action"
+            >
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 11.5C20 16.2 16.2 20 11.5 20C10 20 8.6 19.6 7.3 18.9L4 20L5.1 16.9C4.3 15.5 4 14 4 12.5C4 7.8 7.8 4 12.5 4C17.2 4 20 7 20 11.5Z"></path>
+                    <path d="M9 9C9.5 11 11 12.5 13 13C13.5 13.1 14 12.9 14.3 12.5L15 11.6"></path>
+                </svg>
+
+                <span>
+                    WhatsApp
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="#home" class="brand footer-logo">
+
+                <span class="brand-mark">
+                    <svg viewBox="0 0 40 40">
+                        <path
+                            d="M20 33C12 29 7 22 9 14C16 14 22 18 23 25C25 17 30 12 36 11C37 20 31 28 20 33Z"
+                            fill="currentColor"
+                        />
+                        <path
+                            d="M20 31C20 23 18 18 13 15"
+                            fill="none"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </span>
+
+                <span class="brand-text">
+                    <strong>FRESH</strong>
+                    <span>HARVEST</span>
+                </span>
+
+            </a>
+
+            <p>
+                Premium fresh produce for everyday living.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="#shop">Shop</a>
+            <a href="#offers">Offers</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Categories</h4>
+
+            <a href="#shop" data-footer-category="fruits">Fruits</a>
+            <a href="#shop" data-footer-category="vegetables">Vegetables</a>
+            <a href="#shop" data-footer-category="frozen">Frozen</a>
+            <a href="#shop" data-footer-category="other">Other</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Follow</h4>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Instagram">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="17.5" cy="6.5" r="1"></circle>
+                    </svg>
+
+                </a>
+
+
+                <a href="#" aria-label="Facebook">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 8H16V4H13C10.8 4 9 5.8 9 8V10H6V14H9V20H13V14H16L17 10H13V8C13 7.4 13.4 8 14 8Z"></path>
+                    </svg>
+
+                </a>
+
+
+                <a href="#" aria-label="TikTok">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 4V15.5C14 18 12 20 9.5 20C7 20 5 18.5 5 16C5 13.5 7 12 9.5 12C10 12 10.5 12.1 11 12.3V8C11 5.8 12.2 4.3 14 4Z"></path>
+                        <path d="M14 4C15 6.5 16.5 7.5 19 7.5"></path>
+                    </svg>
+
+                </a>
+
+
+                <a href="#" aria-label="YouTube">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="6" width="18" height="12" rx="3"></rect>
+                        <path d="M10 9L16 12L10 15Z"></path>
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Fresh Harvest. All rights reserved.
+        </span>
+
+        <span>
+            Demo frontend — business details will be replaced after approval.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/971554480623"
+    target="_blank"
+    class="floating-whatsapp"
+    aria-label="WhatsApp"
+>
+
+    <svg viewBox="0 0 24 24">
+        <path d="M20 11.5C20 16.2 16.2 20 11.5 20C10 20 8.6 19.6 7.3 18.9L4 20L5.1 16.9C4.3 15.5 4 14 4 12.5C4 7.8 7.8 4 12.5 4C17.2 4 20 7 20 11.5Z"></path>
+        <path d="M9 9C9.5 11 11 12.5 13 13C13.5 13.1 14 12.9 14.3 12.5L15 11.6"></path>
+    </svg>
+
+</a>
+
+
+<!-- =========================================================
+     PRODUCT ORDER MODAL
+========================================================= -->
+
+<div class="modal-backdrop" id="productModal">
+
+    <div class="product-modal">
+
+        <button
+            class="modal-close"
+            data-close-modal="productModal"
+        >
+            ×
+        </button>
+
+
+        <div class="product-modal-image">
+
+            <img
+                id="modalProductImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <div class="product-modal-content">
+
+            <span class="modal-eyebrow" id="modalProductCategory">
+                FRESH PRODUCE
+            </span>
+
+            <h2 id="modalProductName">
+                Product
+            </h2>
+
+            <p id="modalProductDescription">
+                Fresh product selected for you.
+            </p>
+
+
+            <div class="quantity-area">
+
+      <div class="available-unit-area">
+    <label>Available By</label>
+
+    <div
+        class="available-unit-buttons"
+        id="modalUnitButtons"
+    ></div>
+</div>
+
+                <label>
+                    Quantity
+                </label>
+
+                <input
+                    type="number"
+                    id="modalQuantity"
+                    min="1"
+                    step="1"
+                    value="1"
+                >
+
+            </div>
+
+
+            <button
+                class="primary-btn full-btn"
+                id="addProductToCartBtn"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CART / INVOICE MODAL
+========================================================= -->
+
+<div class="modal-backdrop" id="cartModal">
+
+    <div class="cart-modal">
+
+        <button
+            class="modal-close"
+            data-close-modal="cartModal"
+        >
+            ×
+        </button>
+
+
+        <div class="cart-header">
+
+            <div>
+
+                <span class="modal-eyebrow">
+                    ORDER REVIEW
+                </span>
+
+                <h2>Your Order</h2>
+
+            </div>
+
+            <span class="cart-count-label" id="cartHeaderCount">
+                0 items
+            </span>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems"></div>
+
+
+        <div class="cart-suggestions">
+
+            <div class="suggestion-heading">
+
+                <span>CONTINUE SHOPPING</span>
+
+                <small>
+                    Choose a category to add more products to this order
+                </small>
+
+            </div>
+
+            <div
+                class="suggestion-grid"
+                id="suggestionGrid"
+            ></div>
+
+        </div>
+
+
+        <div class="customer-form">
+
+            <div class="form-heading">
+
+                <span class="modal-eyebrow">
+                    CUSTOMER DETAILS
+                </span>
+
+                <h3>
+                    Where should we send your order?
+                </h3>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-field">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="customerPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="invoice-footer">
+
+            <div>
+
+                <span>
+                    Items
+                </span>
+
+                <strong id="invoiceItemCount">
+                    0
+                </strong>
+
+            </div>
+
+            <p>
+                Product prices will be confirmed through the customer order.
+            </p>
+
+            <button
+                class="whatsapp-order-btn"
+                id="whatsappOrderBtn"
+            >
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 11.5C20 16.2 16.2 20 11.5 20C10 20 8.6 19.6 7.3 18.9L4 20L5.1 16.9C4.3 15.5 4 14 4 12.5C4 7.8 7.8 4 12.5 4C17.2 4 20 7 20 11.5Z"></path>
+                    <path d="M9 9C9.5 11 11 12.5 13 13C13.5 13.1 14 12.9 14.3 12.5L15 11.6"></path>
+                </svg>
+
+                Send Order via WhatsApp
+
+            </button>
+
+            <button
+    class="email-order-btn"
+    id="emailOrderBtn"
+    type="button"
+>
+
+    <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+
+        <path
+            d="M4 6H20V18H4Z"
+        ></path>
+
+        <path
+            d="M4 7L12 13L20 7"
+        ></path>
+
+    </svg>
+
+    Send Order via Email
+
+</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FEEDBACK MODAL
+========================================================= -->
+
+<div class="modal-backdrop" id="feedbackModal">
+
+    <div class="feedback-modal">
+
+        <button
+            class="modal-close"
+            data-close-modal="feedbackModal"
+        >
+            ×
+        </button>
+
+
+        <span class="modal-eyebrow">
+            YOUR FEEDBACK
+        </span>
+
+        <h2>
+            How was your experience?
+        </h2>
+
+        <p>
+            Your feedback helps us improve the ordering experience.
+        </p>
+
+
+        <div class="stars" id="feedbackStars">
+
+            <button data-rating="1">★</button>
+            <button data-rating="2">★</button>
+            <button data-rating="3">★</button>
+            <button data-rating="4">★</button>
+            <button data-rating="5">★</button>
+
+        </div>
+
+
+        <textarea
+            id="feedbackText"
+            placeholder="Tell us about your experience..."
+        ></textarea>
+
+
+        <button
+            class="primary-btn full-btn"
+            id="submitFeedback"
+        >
+            Submit Feedback
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div class="toast" id="toast">
+
+    <span class="toast-icon">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M5 12L10 17L19 7"></path>
+        </svg>
+
+    </span>
+
+    <span id="toastText">
+        Added to cart
+    </span>
+
+</div>
+
+
+<script src="javascript.js" defer></script>
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadWeekendOffer();
+
+    }
+);
+
+
+function normalizeOfferImagePath(value) {
+
+    if (!value) {
+        return "";
+    }
+
+    let image = String(value).trim().replace(/\\/g, "/");
+
+    if (!image) {
+        return "";
+    }
+
+    if (
+        image.startsWith("http://") ||
+        image.startsWith("https://") ||
+        image.startsWith("data:")
+    ) {
+        return image;
+    }
+
+    if (image.startsWith("/jasir3/")) {
+        return image;
+    }
+
+    if (image.startsWith("/")) {
+        return "/jasir3" + image;
+    }
+
+    if (image.startsWith("./")) {
+        image = image.substring(2);
+    }
+
+    if (image.startsWith("jasir3/")) {
+        return "/" + image;
+    }
+
+    return "/jasir3/" + image.replace(/^\/+/, "");
+}
+
+
+async function loadWeekendOffer() {
+
+    try {
+
+        const response =
+            await fetch("api/offers.php");
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.success ||
+            !data.offers ||
+            data.offers.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+         * First active offer
+         */
+
+        const offer =
+            data.offers[0];
+
+
+        const title =
+            document.getElementById(
+                "offerTitle"
+            );
+
+
+        const description =
+            document.getElementById(
+                "offerDescription"
+            );
+
+
+        const image =
+            document.getElementById(
+                "offerImage"
+            );
+
+
+        if (title) {
+
+            title.innerHTML =
+                escapeOfferText(
+                    offer.title
+                );
+
+        }
+
+
+        if (description) {
+
+            description.textContent =
+                offer.description ||
+                "Discover this week's fresh special offer.";
+
+        }
+
+
+        if (
+            image &&
+            offer.image
+        ) {
+
+            image.src =
+                normalizeOfferImagePath(offer.image);
+
+            image.alt =
+                offer.title;
+
+            image.onerror = function () {
+                this.style.display = "none";
+            };
+
+        }
+
+
+        /*
+         * Optional product button
+         */
+
+        const shopButton =
+            document.getElementById(
+                "offerShopBtn"
+            );
+
+
+        if (shopButton) {
+
+            shopButton.onclick =
+                function () {
+
+                    document
+                        .getElementById("shop")
+                        ?.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                };
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Weekend offer error:",
+            error
+        );
+
+    }
+
+}
+
+
+/*
+ * Prevent HTML injection in title
+ */
+
+function escapeOfferText(text) {
+
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
