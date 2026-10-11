@@ -1552,7 +1552,7 @@ const sections = {
                     </p>
 
                     <a
-                        href="#"
+                        href="site-settings.php"
                         class="open-btn"
                     >
                         Manage Category Images
@@ -1573,7 +1573,7 @@ const sections = {
                     </p>
 
                     <a
-                        href="#"
+                        href="site-settings.php"
                         class="open-btn"
                     >
                         Manage Animation
